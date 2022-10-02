@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="eu.janunger.gamedealz" version="0.1.0">
+  <name>GameDealz</name>
+  <description>GameDealz</description>
+  <author email="janungerapp@gmail.com" href="https://janunger.eu">
+        Jan Unger
+    </author>
+  <id />
+  <content src="index.html"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <preference name="GradlePluginKotlinEnabled" value="true" />
+  <preference name="AndroidXEnabled" value="true" />
+  <access origin="*"/>
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <hook src="node_modules/cordova-import-npm/scripts/importNpmPackages.js" type="before_prepare"/>
+</widget>

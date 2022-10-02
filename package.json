@@ -1,0 +1,39 @@
+{
+  "name": "eu.janunger.gamedealz",
+  "displayName": "GameDealz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Jan Unger",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^11.0.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-disable-http-cache": "^1.0.0",
+    "cordova-plugin-android-dark-mode-support": "github:timbru31/cordova-plugin-android-dark-mode-support",
+    "cordova-plugin-browsersync": "^1.1.0",
+    "cordova-plugin-device": "^2.1.0",
+    "cordova-plugin-inappbrowser": "^5.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "browser"
+    ],
+    "plugins": {
+      "cordova-plugin-browsersync": {},
+      "cordova-plugin-device": {},
+      "cordova-disable-http-cache": {},
+      "cordova-plugin-android-dark-mode-support": {},
+      "cordova-plugin-inappbrowser": {}
+    }
+  },
+  "dependencies": {
+    "@material/card": "^14.0.0"
+  }
+}

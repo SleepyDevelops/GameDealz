@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="color-scheme" content="light dark">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;">
+        <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/mdc.card.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery.ui.mouse.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <title>GameDealz</title>
+    </head>
+    <body>
+      <div class ="header">
+      <input class='searchbox' type="search" id='titleSearch'></input>
+      <div class='search-icon' onclick="searchTitle()"></div>
+      <div class='menu-icon' onclick="openNav()"></div>
+      </div>
+      <dt class='item-list'>
+      </dt>
+
+      <div class="popUp">
+        <div class="popUp-title">
+        </div>
+        <table class="popUp-Content">
+        </table>
+        <div onclick="togglePopupNoArgs()" class="close-btn btn">
+        ×
+        </div>
+        <div class="fav-icon-Game noFav"></div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <div class="closebtn" onclick="closeNav()">×
+        </div>
+        <fieldset class='filter-stores'>
+           <legend>Stores: </legend>
+         </fieldset>
+         <div class="filter-price">
+         <p>
+            <label for="amount">Price range:</label>
+            <span id="amount"></span>
+            <div id="slider-range"></div>
+          </p>
+         </div>
+         <fieldset class='filter-sortBy'>
+            <legend>Sort by: </legend>
+            <label for="radio-sort-1" class="ui-checkboxradio-checked ui-state-active sortRadio"><input type="radio" class="checkbox" value="Deal Rating" name="radio-sort" id="radio-sort-1">Deal Rating</label>
+            <label for="radio-sort-3"><input type="radio" class="checkbox sortRadio" value="Savings" name="radio-sort" id="radio-sort-3">Savings</label>
+            <label for="radio-sort-4"><input type="radio" class="checkbox sortRadio" value="Price" name="radio-sort" id="radio-sort-4">Price</label>
+            <label for="radio-sort-5"><input type="radio" class="checkbox sortRadio" value="Recent" name="radio-sort" id="radio-sort-5">Newest</label>
+          </fieldset>
+         <div onclick="searchWithFilter()" class="search-btn btn">
+         Search
+         </div>
+         <div onclick="location.reload();" class="search-btn btn bottom-btn">
+         Reset Filters
+         </div>
+         <diV class=currency>
+          <p class="currency-p">
+          Curreny:
+          </p>
+         <label class ='currency-val' for="currency-btn">$</label>
+        <input type="checkbox" id="currency-btn" onclick="toggleCurrency()"/>
+
+        </div>
+    </div>
+    <div id="overlay" onclick="togglePopupNoArgs()"></div>
+    <div class="loadersmall"></div>
+    <div class="end-txt" style="text-align:center;" >Nothing more to load...</div>
+    <div class="footer"></div>
+    <div class ="footer-menu">
+      <table>
+        <tr>
+          <td class="selected" align="center" valign="center">
+            <div class='home-icon' onclick="location.reload();"></div>
+          </td>
+          <td align="center" valign="center">
+            <div class='fav-icon' onclick="showFav()"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    </body>
+</html>
