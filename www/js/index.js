@@ -63,13 +63,13 @@ function loadFavs(){
                 var sales = entry.salePrice.split(',')
                 var prices = entry.normalPrice.split(',')
                 var dealIds = entry.dealID.split(',')
+                var isOnSale = entry.isOnSale.split(',')
                 sales = sales.map(Number);
                 var usedIndex = indexOfSmallest(sales)
                 var savings = entry.savings.split(',')
-                console.log(sales)
 
                 if (!$('#'+entry.internalName).length){
-                  renderItemCard(entry.title, entry.thumb, entry.dealID, prices[usedIndex], sales[usedIndex], entry.internalName, savings[usedIndex], true, entry.isOnSale)
+                  renderItemCard(entry.title, entry.thumb, entry.dealID, prices[usedIndex], sales[usedIndex], entry.internalName, savings[usedIndex], true, isOnSale[usedIndex])
                 }
                 addStoreIcon(entry.storeID, entry.internalName)
               });
@@ -169,10 +169,12 @@ function getData(){
           var prices = entry.normalPrice.split(',')
           var dealIds = entry.dealID.split(',')
           var savings = entry.savings.split(',')
+          var isOnSale = entry.isOnSale.split(',')
+
           sales = sales.map(Number);
           var usedIndex = indexOfSmallest(sales)
           if (!$('#'+entry.internalName).length){
-            renderItemCard(entry.title, entry.thumb, entry.dealID, prices[usedIndex], sales[usedIndex], entry.internalName, savings[usedIndex], false, entry.isOnSale)
+            renderItemCard(entry.title, entry.thumb, entry.dealID, prices[usedIndex], sales[usedIndex], entry.internalName, savings[usedIndex], false, isOnSale[usedIndex])
           }
           addStoreIcon(entry.storeID, entry.internalName)
         });
@@ -256,6 +258,7 @@ function checkDublicates(entry){
           parsedEntries[i].normalPrice = parsedEntries[i].normalPrice + ',' + entry.normalPrice
           parsedEntries[i].dealID = parsedEntries[i].dealID + ',' + entry.dealID
           parsedEntries[i].savings = parsedEntries[i].savings + ',' + entry.savings
+          parsedEntries[i].isOnSale = parsedEntries[i].isOnSale + ',' + entry.isOnSale
           break;
         }
       }
@@ -279,6 +282,7 @@ function checkDublicatesAll(entry){
           allEntries[i].normalPrice = allEntries[i].normalPrice + ',' + entry.normalPrice
           allEntries[i].dealID = allEntries[i].dealID + ',' + entry.dealID
           allEntries[i].savings = allEntries[i].savings + ',' + entry.savings
+          allEntries[i].isOnSale = allEntries[i].isOnSale + ',' + entry.isOnSale
           break;
         }
       }
@@ -290,6 +294,7 @@ function checkDublicatesAll(entry){
 }
 
 function renderItemCard(title,pic,dealId,normalPrice,salePrice, id, saving, fav, isOnSale){
+  salePrice = salePrice.toFixed(2);
  var nosale = false;
   if (saving.split('.')[0] == '100'){
     saving = 'FREE'
@@ -334,6 +339,9 @@ function togglePopup(dealIds,prices,sales,stores,title, name) {
   if (favs.includes(name)){
       $('.fav-icon-Game').addClass('Fav').removeClass('noFav');
   }
+  else{
+      $('.fav-icon-Game').addClass('noFav').removeClass('Fav');
+  }
   $(".popUp-Content").html('');
   $(".popUp-title").html(title);
   var storeArry = stores.split(',');
@@ -349,6 +357,8 @@ function togglePopup(dealIds,prices,sales,stores,title, name) {
             break;
         }
     }
+    prices[index] = prices[index].toFixed(2);
+    sales[index] = sales[index].toFixed(2);
     var obj = {};
     if (prices[index] != sales[index]){
     obj['link'] = "<tr class='popUpTr' onClick=openDeal('"+element+"')><td>"+storeIcon+"</td><td class='normalPrice'>"+prices[index]+currency+"</td><td class='salePrice'>"+sales[index]+currency+"</td></tr>";

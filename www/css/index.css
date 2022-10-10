@@ -321,10 +321,11 @@
 }
 
 .currency{
-  padding-block-start: 0.35em;
+    padding-block-start: 0.35em;
     padding-inline-start: 0.75em;
     padding-inline-end: 0.75em;
     padding-block-end: 0.625em;
+    margin-bottom: 50px;
 }
 
 .popUpTr{
@@ -362,6 +363,9 @@
   width: 100%;
   border-collapse: collapse;
   margin: 10px;
+  display: block;
+  max-height: 50vh;
+  overflow-y: scroll;
 }
 
 .fav-icon-Game{
@@ -445,10 +449,6 @@
 
 .btn{
   border-radius: 5px;
-}
-
-.currency-p{
-  margin-bottom: 10px;
 }
 
 .loadersmall {
