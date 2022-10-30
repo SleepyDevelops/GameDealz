@@ -12,7 +12,7 @@ Big thanks for them for letting me use this data.
 ## Where can I find the final app? 
 [PlayStore](https://play.google.com/store/apps/details?id=eu.janunger.gamedealz)
 
-##What advantage does this app have in comparison to other apps? 
+## What advantage does this app have in comparison to other apps? 
 - free
 - lightweight
 - no ads
